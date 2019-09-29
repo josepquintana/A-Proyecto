@@ -27,6 +27,7 @@ gen/
 # and a directory named `gen`, as well as any contents of that directory
 bin
 gen
+test
 
 # Ignoring files by extension
 # All files with these extensions will be ignored in
