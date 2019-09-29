@@ -1,11 +1,11 @@
 #include <iostream>
 #include <ctime>
-#include "GreatGraph.h"
+#include "Graph.h"
 
 using namespace std;
 
 /**Màxim nombre d'arestes que pot tenir un Graph aleatori.*/
-#define MAXNV 10
+#define MAXNV 200
 /**Màxim nombre d'arestes que pot tenir un Graph aleatori.*/
 #define MINNV 1
 
@@ -19,25 +19,34 @@ int randomNV(int minNV, int maxNV) {
 
     	//cout << "En funcion randomNV del main:" << endl;
     	//cout << maxNV << ' ' << minNV << ' ' << maxNV - minNV + 1 << endl;
-    	//cout << "VALOR DE RETORNO:" << minNV + (randnum % (maxNV - minNV + 1)) << endl;
+    	//cout << "VALOR DE RETORNO:" << (randnum % (maxNV - minNV + 1)) << endl;
     	//cout << "VALOR DE FUNC RAN(): " << randnum << endl;
-
-
 
     return minNV + (randnum % (maxNV - minNV + 1));
 }
-
-
 
 /**
  * Retorna un Graph Erdős-Rényi aleatori.
  * @return Graph Erdős-Rényi aleatori.
  */
+Graph randomERLG() {
+    int nV = randomNV(MINNV, MAXNV);
+    return Graph::generateERGraph(nV, rand() % (((nV * (nV - 1)) / 2)+ 1));
+}
 
+Graph randomGG() {
+    int nV = randomNV(MINNV, MAXNV);
+    return Graph::generateRGG(nV);
+}
 
+int main() {
 
+	Graph gER = randomERLG();
+	//gER.print();
 
-int main(){
-	GreatGraph GG;
-	GG.Test();
+	vector<vector<int> > components = gER.getConnectedComponents();
+
+	Graph RGg = randomGG();
+	//RGg.print();
+
 }
