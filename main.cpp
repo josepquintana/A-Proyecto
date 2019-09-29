@@ -14,10 +14,6 @@ using namespace std;
  * @return  Valor aleatori entre minNV i maxNV.
  */
 int randomNV(int minNV, int maxNV) {
-	
-
-
-
     srand(time(0));
     int randnum = rand();
 

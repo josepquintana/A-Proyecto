@@ -34,6 +34,7 @@ test
 # this directory and all its sub-directories.
 *.apk
 *.class
+*.ipynb
 
 # It's possible to combine both forms to ignore files with certain
 # extensions in certain directories. The following rules would be
