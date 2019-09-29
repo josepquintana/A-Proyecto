@@ -2,6 +2,12 @@
 
 using namespace std;
 
+
+/**Grandaria de l'espai de coordenades al cas dels 'Random Grafs Geometrics'.*/
+#define MAXGRID 200
+
+#define MAXDISTANCE 200
+
 Graph::Graph(int maxId) {
     this->maxId = maxId;
     maxIdActiu = -1;
@@ -11,6 +17,8 @@ Graph::Graph(int maxId) {
     nodeLG n;
     n.actiu = false;
     n.adjacencies = set<int>();
+    n.coord.first = -1;
+    n.coord.second = -1;
     nodes = vector<nodeLG>(maxId + 1, n);
 }
 
@@ -53,6 +61,9 @@ bool Graph::adjacent(int id1, int id2) {
         return nodes[id2].adjacencies.find(id1) != nodes[id2].adjacencies.end();
 }
 
+int Graph::getNVertexs() { return nV; }
+
+
 
 Graph Graph::generateActivatedGraph(int nV) {
     Graph lG(nV - 1);
@@ -65,6 +76,33 @@ Graph Graph::generateActivatedGraph(int nV) {
     lG.nodes = vector<nodeLG>(nV, n);
     return lG;
 }
+
+void Graph::setRandomCoordinates(int maxX, int maxY){
+
+    srand(time(0));
+    for(int i = 0; i < nV; ++i){
+        
+        int randX = rand();
+            //cout << "randX: " << randX <<endl;
+        int x = (randX % (maxX + 1));
+            nodes[i].coord.first = x;
+
+
+
+        
+        int randY = rand();
+            //cout << "randY: " << randY <<endl;
+        int y = (randY % (maxY + 1));
+            nodes[i].coord.second = y;
+
+           //cout << "nodo: " << i <<endl;
+           // cout << "      x=" << x << ", y=" << y << endl;
+
+    }
+
+}
+
+
 
 
 Graph Graph::generateERGraph(int nV, int M) {
@@ -79,6 +117,50 @@ Graph Graph::generateERGraph(int nV, int M) {
     }
     return lG;
 }
+
+Graph Graph::generateRGG(int nV){
+
+    srand(time(0));
+    int randD = rand();
+    int randomDistance = (randD % (MAXDISTANCE + 1));
+        
+       
+
+    Graph lg = generateActivatedGraph(nV);
+    lg.setRandomCoordinates(30, 30);
+    for(int i = 0; i < nV; ++i){
+        for(int j = i+1; j < nV; ++j){
+           int coordxi = lg.nodes[i].coord.first;
+           int coordyi = lg.nodes[i].coord.second;
+
+           int coordxj = lg.nodes[j].coord.first;
+           int coordyj = lg.nodes[j].coord.second;
+
+            /*
+            cout << "en generateRGG, en el bucle interno, coordenadas:" << endl;
+            
+            cout << "  NODO i:" << endl;
+            cout << "      x = " << coordxi << ", y= " << coordyi  << endl;
+
+            cout << "  NODO j:" << endl;
+            cout << "      x = " << coordxj << ", y= " << coordyj  << endl;
+
+            int d = 1;*/
+
+            int d = sqrt (pow(coordxj-coordxi, 2) + pow(coordyj-coordyi, 2));
+
+
+            if(d < randomDistance){
+                lg.addAresta(i, j);
+            }
+
+
+        }
+    }
+
+    return lg;
+}
+
 
 set<int> Graph::getVertexs() {
     set<int> vs = set<int>();

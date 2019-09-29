@@ -3,6 +3,7 @@
 #include <set>
 #include <string>
 #include <cmath>
+#include <ctime>
 #include "Union.h"
 
 using namespace std;
@@ -13,6 +14,10 @@ struct nodeLG {
     bool actiu;
     /**ids dels nodes adjacents al node.*/
     set<int> adjacencies;
+
+    /**coordenades del node en el cas de formar part d'un Random Geometric Graph, en cas contrari els 
+    valos seràn iguals a -1.*/
+    pair<int, int> coord;
 };
 
 /**
@@ -63,6 +68,10 @@ public:
      */
     static Graph generateERGraph(int nV, int M);
 
+    static Graph generateRGG(int nV);
+
+    void setRandomCoordinates(int maxX, int maxY);
+
 
     /**Modificadores*/
 
@@ -112,6 +121,16 @@ public:
      * @return      true si els vètexs són adjacents, false altrament.
      */
     bool adjacent(int id1, int id2);
+
+      /**
+     * Indica quants vèrtexs té el ListGraph.
+     * @return  Número de vèrtexs que té el ListGraph.
+     */
+    int getNVertexs();
+
+
+    int distance(int x1, int y1, int x2, int y2);
+
 
 
     /**Fa cout del graf.*/
