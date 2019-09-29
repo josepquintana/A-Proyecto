@@ -1,7 +1,6 @@
 #include <iostream>
 #include <ctime>
-#include "Graph.h"
-
+#include "GreatGraph.h"
 
 using namespace std;
 
@@ -25,17 +24,11 @@ int randomNV(int minNV, int maxNV) {
  * Retorna un Graph Erdős-Rényi aleatori.
  * @return Graph Erdős-Rényi aleatori.
  */
-Graph randomERLG() {
-    int nV = randomNV(MINNV, MAXNV);
-    return Graph::generateERGraph(nV, rand() % (((nV * (nV - 1)) / 2)+ 1));
-}
 
 
 
 
 int main(){
-
-	Graph gER = randomERLG();
-	gER.print();
-
+	GreatGraph GG;
+	GG.Test();
 }

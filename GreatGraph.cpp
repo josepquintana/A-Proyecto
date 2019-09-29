@@ -1,31 +1,8 @@
-#include <vector>
-#include <iostream>
+#include "GreatGraph.h"
 using namespace std;
 
-struct graph{
-    int V = 0;
-    vector<vector<int>> adj;
-        public:
-            void addEdge(int i, int v){
-                adj[i].push_back(v);
-                adj[v].push_back(i);
-            }
-            void addNode(int n){
-                V += n;
-                for (int i = 0; i < n; i++)
-                {
-                    vector<int> new_node;
-                    adj.push_back(new_node);
-                }
-            }
-};
 
-struct components
-{
-    /* data */
-    vector<vector<int>> comp;
-};
-bool contains(vector<int> v,int index){
+/* bool contains(vector<int> v,int index){
     for (int i = 0; i < v.size(); i++)
     {
         if(v[i] == index){
@@ -33,9 +10,9 @@ bool contains(vector<int> v,int index){
         }
     }
     return false;
-}
+} */
 
-vector<int> greatest_components(graph G){
+/* vector<int> greatest_components(Graph G){
     components result;
     vector<bool> visited(G.adj.size(), false);
 
@@ -73,35 +50,22 @@ vector<int> greatest_components(graph G){
     }
 
     return result.comp[Max];
-}
+} */
 
+GreatGraph::GreatGraph(){}
 
-int main(int argc, char *argv[])
+void GreatGraph::Test()
 {
-    graph G;
-    G.addNode(8);
-    G.addEdge(0,1);
-    G.addEdge(0,2);
-    G.addEdge(0,3);
-    G.addEdge(4,5);
-    G.addEdge(5,6);
-    G.addEdge(6,7);
-    G.addEdge(7,4);
-    G.addEdge(4,3);
-    for (int i = 0; i < G.V; i++)
-    {
-        cout << i << ':';
-        for (int j = 0; j < G.adj[i].size(); j++)
-        {
-            cout << G.adj[i][j] << ' ';
-        }
-        cout << endl;
+    int vertex;
+    cin >> vertex ;
+    int test = 100;
+    float p = 0;
+    int ar = 0;
+    printf ("vertex_number\tarista_number\tp_value\tgreatest_component\n");
+    for(int i = 1; i< test; i++){
+        ar = (vertex * (vertex -1) ) * p;
+        Graph G = Graph::generateERGraph(vertex,ar);
+        printf ("%d\t%d\t%f\t%d\n", vertex,ar,p,0);
+        p = (float)i / (float)100;
     }
-    vector<int> greatest = greatest_components(G);
-    for (int i = 0; i < greatest.size(); i++)
-    {
-        cout << greatest[i] << ' ';
-    }
-    cout << endl;
-    return 0;
 }

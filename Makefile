@@ -1,5 +1,5 @@
-main.x: main.o Graph.o Find.o Union.o
-	g++ -o main.x main.o Graph.o Find.o Union.o
+main.x: main.o main.o Graph.o Find.o Union.o GreatGraph.o 
+	g++ -o main.x *.o 
 
 main.o: main.cpp
 	g++ -c main.cpp -std=c++11
@@ -14,3 +14,9 @@ Find.o: Find.h Find.cpp
 
 Union.o: Union.h Union.cpp
 	g++ -c Union.cpp -std=c++11
+
+GreatGraph.o: GreatGraph.h GreatGraph.cpp
+	g++ -c GreatGraph.cpp -std=c++11
+
+clean:
+	rm *.o *.x
