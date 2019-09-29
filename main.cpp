@@ -10,6 +10,17 @@
 #include "Graph.h"
 using namespace std;
 
+int selectWorkingMode()
+{
+    cout << "\n [MODE] Check graph property:\n";
+    cout << "\t 1. Connected components\n";
+    cout << "\t 0. Exit\n";
+    int option;
+    cout << "\n > ";
+    cin >> option;
+    return option;
+}
+
 pair<int, int> parseAdjacencies(string line)
 {
     stringstream ss(line);
@@ -56,7 +67,18 @@ int main(int argc, char* argv[])
 
     G.printGraph();
 
-    checkConnectivity(G);
+    int mode = selectWorkingMode();
+    while (mode != 0) {
+        switch (mode) {
+            case 1:
+                checkConnectivity(G);
+                break;
+            default:
+                cout << "\n Invalid option!\n";
+                break;
+        }
+        mode = selectWorkingMode();
+    }
 
     return 0;
 }
