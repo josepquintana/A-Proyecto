@@ -70,7 +70,7 @@ public:
      * @param id1   id del 1r UFNode.
      * @param id2   id del 2n UFNode.
      */
-    void Union(int id1, int id2);
+    void makeUnion(int id1, int id2);
 
     /**Consultoras*/
 

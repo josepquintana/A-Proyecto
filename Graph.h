@@ -3,7 +3,7 @@
 #include <set>
 #include <string>
 #include <cmath>
-#include "QuickUnionUF.h"
+#include "Union.h"
 
 using namespace std;
 
