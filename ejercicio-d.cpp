@@ -7,10 +7,8 @@ int V = 0;
 vector<vector<int>> adj;
     public:
         void addEdge(int i, int v){
-            if(adj[i][v]<0) {
-                adj[i].push_back(v);
-                adj[v].push_back(i);
-            }
+            adj[i].push_back(v);
+            adj[v].push_back(i);
         }
         void addNode(int n){
             V += n;
@@ -27,6 +25,15 @@ struct components
     /* data */
     vector<vector<int>> comp;
 };
+bool contains(vector<int> v,int index){
+    for (int i = 0; i < v.size(); i++)
+    {
+        if(v[i] == index){
+            return true;
+        }
+    }
+    return false;
+}
 
 components greatest_components(graph G){
     components result;
@@ -53,7 +60,7 @@ components greatest_components(graph G){
                     int container = -1;
                     for (int k = 0; k < result.comp.size(); k++)
                     {
-                        if(result.comp[k][i]>-1){
+                        if(contains(result.comp[k],j)){
                             container = k;
                         }
                     }
@@ -66,6 +73,7 @@ components greatest_components(graph G){
     return result;
 }
 
+
 int main(int argc, char const *argv[])
 {
     graph G;
@@ -75,10 +83,13 @@ int main(int argc, char const *argv[])
     G.addEdge(3,4);
     for (int i = 0; i < G.V; i++)
     {
+        cout << i << ':';
         for (int j = 0; j < G.adj[i].size(); j++)
         {
-            cout << G.adj[i][j] << endl;
+            cout << G.adj[i][j] << ' ';
         }
+        cout << endl;
+
     }
     return 0;
 }
