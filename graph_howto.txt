@@ -1,0 +1,6 @@
+Graph
+4	// num vertices
+0 1	// edge: 0 <-> 1
+1 2 // edge: 1 <-> 2
+2 3	// edge: 2 <-> 3
+EOF // end of file
