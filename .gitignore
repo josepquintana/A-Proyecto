@@ -59,7 +59,7 @@ gen/*.class
 # To ignore any directory named DirectoryB within a 
 # directory named DirectoryA with any number of 
 # directories in between, use ** between the directories
-DirectoryA/**/DirectoryB/
+
 # This would ignore 
 # DirectoryA/DirectoryB/ 
 # DirectoryA/DirectoryQ/DirectoryB/ 
