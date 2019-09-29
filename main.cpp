@@ -5,7 +5,7 @@
 using namespace std;
 
 /**Màxim nombre d'arestes que pot tenir un Graph aleatori.*/
-#define MAXNV 10
+#define MAXNV 200
 /**Màxim nombre d'arestes que pot tenir un Graph aleatori.*/
 #define MINNV 1
 
@@ -19,7 +19,7 @@ int randomNV(int minNV, int maxNV) {
 
     	//cout << "En funcion randomNV del main:" << endl;
     	//cout << maxNV << ' ' << minNV << ' ' << maxNV - minNV + 1 << endl;
-    	//cout << "VALOR DE RETORNO:" << minNV + (randnum % (maxNV - minNV + 1)) << endl;
+    	//cout << "VALOR DE RETORNO:" << (randnum % (maxNV - minNV + 1)) << endl;
     	//cout << "VALOR DE FUNC RAN(): " << randnum << endl;
 
 
@@ -33,6 +33,11 @@ int randomNV(int minNV, int maxNV) {
  * Retorna un Graph Erdős-Rényi aleatori.
  * @return Graph Erdős-Rényi aleatori.
  */
+
+Graph randomGG() {
+    int nV = randomNV(MINNV, MAXNV);
+    return Graph::generateRGG(nV);
+}
 
 
 
