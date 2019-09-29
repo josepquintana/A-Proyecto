@@ -34,7 +34,7 @@ void Find::makeSet(int id) {
     }
 }
 
-void Find::Union(int id1, int id2) {
+void Find::makeUnion(int id1, int id2) {
     if (not teNode(id1))
         cout << "No existeix un node amb la id " << id1 << '.' << endl;
     else if (not teNode(id2))
