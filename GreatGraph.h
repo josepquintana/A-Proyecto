@@ -2,8 +2,8 @@
 #include <vector>
 #include <set>
 #include <fstream>
+#include <math.h> 
 #include "Graph.h"
-#include "Find.h"
 
 
 using namespace std;

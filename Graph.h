@@ -58,8 +58,6 @@ public:
      */
     Graph(int maxId);
 
-   
-
     /**
      * Crea un Graph aleatori donat un nombre de vèrtexs seguint el model Erdős-Rényi.
      * @param nV    Nombre de vèrtexs que tindrà el Graph.
@@ -68,13 +66,12 @@ public:
      */
     static Graph generateERGraph(int nV, int M);
 
-    static Graph generateRGG(int nV);
+    static Graph generateRGG(int nV,float r);
 
     void setRandomCoordinates(int maxX, int maxY);
 
 
     /**Modificadores*/
-
 
     /**
      * Afegeix una aresta entre els vèrtexs amb les ids donades si aquests existeixen i no existeix ya una entre ells.
@@ -105,8 +102,6 @@ public:
      */
     set<int> getVertexs();
 
-
-
     /**
      * Indica si el Graph té un vèrtex amb la id indicada
      * @param id    id del vèrtex que es vol comprovar.
@@ -128,10 +123,13 @@ public:
      */
     int getNVertexs();
 
-
     int distance(int x1, int y1, int x2, int y2);
 
-
+    /**
+     * Comprova la connectivitat del Graph
+     * @return els vertexs que formen part de cada component
+     */
+    vector<vector<int> > getConnectedComponents();
 
     /**Fa cout del graf.*/
     void print();

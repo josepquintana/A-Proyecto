@@ -1,4 +1,4 @@
-main.x: main.o main.o Graph.o Find.o Union.o GreatGraph.o 
+main.x: main.o  Graph.o Find.o Union.o probConnex.o GreatGraph.o
 	g++ -o main.x *.o 
 
 main.o: main.cpp
@@ -17,6 +17,9 @@ Union.o: Union.h Union.cpp
 
 GreatGraph.o: GreatGraph.h GreatGraph.cpp
 	g++ -c GreatGraph.cpp -std=c++11
+
+probConnex.o: probConnex.h probConnex.cpp
+	g++ -c probConnex.cpp -std=c++11
 
 clean:
 	rm *.o *.x

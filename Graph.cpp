@@ -63,8 +63,6 @@ bool Graph::adjacent(int id1, int id2) {
 
 int Graph::getNVertexs() { return nV; }
 
-
-
 Graph Graph::generateActivatedGraph(int nV) {
     Graph lG(nV - 1);
     lG.maxIdActiu = nV - 1;
@@ -102,9 +100,6 @@ void Graph::setRandomCoordinates(int maxX, int maxY){
 
 }
 
-
-
-
 Graph Graph::generateERGraph(int nV, int M) {
     Graph lG = generateActivatedGraph(nV);
     for (int i = 0; i < M; ++i) {
@@ -118,11 +113,11 @@ Graph Graph::generateERGraph(int nV, int M) {
     return lG;
 }
 
-Graph Graph::generateRGG(int nV){
+Graph Graph::generateRGG(int nV,float r){
 
     srand(time(0));
     int randD = rand();
-    int randomDistance = (randD % (MAXDISTANCE + 1));
+    int randomDistance = (int) 1/r;
         
        
 
@@ -141,10 +136,8 @@ Graph Graph::generateRGG(int nV){
             
             cout << "  NODO i:" << endl;
             cout << "      x = " << coordxi << ", y= " << coordyi  << endl;
-
             cout << "  NODO j:" << endl;
             cout << "      x = " << coordxj << ", y= " << coordyj  << endl;
-
             int d = 1;*/
 
             int d = sqrt (pow(coordxj-coordxi, 2) + pow(coordyj-coordyi, 2));
@@ -160,7 +153,6 @@ Graph Graph::generateRGG(int nV){
 
     return lg;
 }
-
 
 set<int> Graph::getVertexs() {
     set<int> vs = set<int>();
@@ -188,7 +180,6 @@ set<pair<int, int> > Graph::getArestes() {
     return arestes;
 }
 
-
 set<int> Graph::getAdjacencies(int id) {
     if (not isActive(id)) {
         cout << "No existeix un vertex amb la id " << id << '.' << endl;
@@ -197,7 +188,42 @@ set<int> Graph::getAdjacencies(int id) {
     return nodes[id].adjacencies;
 }
 
+bool contains(int n, vector<int> v){
+    for (int i = 0; i < v.size(); i++)
+    {
+        if(v[i] == n)
+        return true;
+    }
+    return false;
+}
+vector<vector<int> > Graph::getConnectedComponents() {
+    vector<vector<int> > components;
+    bool *visited = new bool[this->nV];
+    for (int u = 0; u < this->nV; ++u) { visited[u] = false; }
+    for (int u = 0; u < this->nV; ++u) {
+        if (not visited[u]) {
+            visited[u] = true;
+            int exists = -1;
+            for (int k = 0; k < components.size(); k++) {
+                for(int h = 0; h < components[k].size(); ++h) {
+                    if(components[k][h] == u) exists = k;
+                }
+            }
+            if (exists < 0) {
+                vector<int> cc(1, u);
+                components.push_back(cc);
+                exists = components.size() - 1;
+            }
+            for (set<int>::iterator it = this->nodes[u].adjacencies.begin(); it != this->nodes[u].adjacencies.end(); ++it) {
+                if(not visited[*it] && !contains(*it,components[exists])) {
+                    components[exists].push_back(*it);
+                }
+            }
+        }
+    }
 
+    return components;
+}
 
 void Graph::print() {
     cout << nV << " Vèrtexs:" << endl;
