@@ -5,7 +5,7 @@ $(OUT): $(OBJECTS)
 	g++ -o $(OUT) -std=c++11 $(OBJECTS)
 
 clean:
-	rm -f $(OBJECTS) $(OUT)
+	rm -f $(OBJECTS) $(OUT) *.exe
 
 run: $(OUT)
 	./$(OUT)
