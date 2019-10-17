@@ -20,7 +20,7 @@ probConnex.o: probConnex.h probConnex.cpp
 	g++ -c probConnex.cpp -std=c++11
 
 clean:
-	rm -f $(OBJECTS) $(OUT)
+	rm -f $(OBJECTS) $(OUT) *.exe
 
 run: $(OUT)
 	./$(OUT)

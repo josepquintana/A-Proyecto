@@ -1,16 +1,13 @@
 # Lines starting with `#` are comments.
 
 # Ignore cmake debug files
-cmake-build-debug/
+src/cmake-build-debug/
 
 # Ignore C++ object files
 src/*.o
 
-# Ignore .csv files
-data/*.csv
-
-# Ignore .png files
-data/*.png
+# Ignore Results
+data/
 
 # Ignore IDE files
 .idea/
