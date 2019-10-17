@@ -1,5 +1,17 @@
 # Lines starting with `#` are comments.
 
+# Ignore cmake debug files
+cmake-build-debug/
+
+# Ignore .csv files
+data/*.csv
+
+# Ignore .png files
+data/*.png
+
+# Ignore IDE files
+.idea/
+
 # Ignore files called 'file.ext'
 file.ext
 
