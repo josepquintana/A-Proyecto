@@ -40,7 +40,7 @@ void GreatGraph::Test()
     int ar = 0;
     srand(time(0));
     for(int k = 0; k< 4; k++){
-        vertex = rand()% 200 + 100;
+        vertex = rand()% 500 + 100;
         p = 0;
          for(int j = 0; j < 5; j++){
             for(int i = 0; i< test; i++){
