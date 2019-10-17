@@ -36,6 +36,8 @@ test
 *.class
 *.ipynb
 *.csv
+*.o
+*.x
 
 # It's possible to combine both forms to ignore files with certain
 # extensions in certain directories. The following rules would be

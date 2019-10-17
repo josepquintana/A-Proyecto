@@ -3,6 +3,7 @@
 using namespace std;
 
 vector<int> greatest_components(Graph G){
+
     vector<vector<int>> components = G.getConnectedComponents();
     int Max = 0;
     for (int i = 0; i < components.size(); i++)
@@ -11,6 +12,7 @@ vector<int> greatest_components(Graph G){
             Max = i;
         }
     }
+
     return components[Max];
 }
 
@@ -28,23 +30,29 @@ void GreatGraph::Test()
 {
     std::ofstream file;
     file.open ("dataGG.csv");
-    file << "vertex_number,arista_number,p_value,is_giant,greatest_component\n";
+    file << "vertex_number,arista_number,p_value,is_giant,greatest_component,computation_time\n";
     int vertex;
     int test = 20;
     float p = 0;
     int ar = 0;
+    clock_t t;
     srand(time(0));
-    for(int k = 0; k< 4; k++){
-        vertex = rand()% 500 + 100;
+    for(int k = 0; k< 10; k++){
+        cout << ".";
+        vertex = rand()% 100 + 100;
         p = 0;
          for(int j = 0; j < 5; j++){
             for(int i = 0; i< test; i++){
                 p = (float)i / (float)20;
                 ar = (vertex * (vertex -1) )/2 * p;
                 Graph G = Graph::generateERGraph(vertex,ar);
+                t = clock();
                 vector<int> ncomp = greatest_components(G);
+                t = clock() - t;
                 bool giant = is_giant(G,ncomp);
-                file <<vertex << "," <<ar << ","<< p << ","<< giant << "," << ncomp.size() << endl;
+                float time = ((float)t)/CLOCKS_PER_SEC;
+                file <<vertex << "," <<ar << ","<< p << ","<< giant << "," << ncomp.size() << "," << time <<endl;
     }}}
+    cout << endl;
     file.close();
 }
