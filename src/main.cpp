@@ -2,8 +2,6 @@
 #include <ctime>
 #include "probConnex.h"  
 #include "GreatGraph.h"
-
-
 using namespace std;
 
 int main()
