@@ -2,7 +2,10 @@
 #include <vector>
 #include <set>
 #include <fstream>
+#include <math.h> 
+#include <time.h>
 #include <cmath>
+
 using namespace std;
 
 struct components
