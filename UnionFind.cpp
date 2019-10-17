@@ -1,18 +1,18 @@
-#include "Union.h"
+#include "UnionFind.h"
 
 using namespace std;
 
-Union::Union(int maxId) {
+UnionFind::UnionFind(int maxId) {
     nClasses = 0;
     this->maxId = maxId;
     maxIdActiu = -1;
     minIdActiu = -1;
-    nodeQU n;
+    nodeQU n{};
     n.actiu = false;
     nodes = vector<nodeQU>(maxId + 1, n);
 }
 
-void Union::makeSet(int id) {
+void UnionFind::makeSet(int id) {
     if (id > maxId)
         cout << "La id " << id << " és més alta que maxId." << endl;
     else if (teNode(id))
@@ -35,7 +35,7 @@ void Union::makeSet(int id) {
     }
 }
 
-void Union::makeUnion(int id1, int id2) {
+void UnionFind::makeUnion(int id1, int id2) {
     if (not teNode(id1))
         cout << "No existeix un node amb la id " << id1 << '.' << endl;
     else if (not teNode(id2))
@@ -61,7 +61,7 @@ void Union::makeUnion(int id1, int id2) {
     }
 }
 
-int Union::find(int id) {
+int UnionFind::find(int id) {
     if (not teNode(id)) {
         cout << "No existeix un node amb la id " << id << '.' << endl;
         return -1;
@@ -69,16 +69,16 @@ int Union::find(int id) {
     return recFind(id);
 }
 
-int Union::recFind(int id) {
+int UnionFind::recFind(int id) {
     if (id == nodes[id].pare)
         return id;
     nodes[id].pare = recFind(nodes[id].pare);
     return nodes[id].pare;
 }
 
-int Union::getNClasses() { return nClasses; }
+int UnionFind::getNClasses() { return nClasses; }
 
-bool Union::teNode(int id) {
+bool UnionFind::teNode(int id) {
     if (id > maxId) {
         cout << "La id " << id << " és més alta que maxId." << endl;
         return false;
@@ -86,7 +86,7 @@ bool Union::teNode(int id) {
     return nodes[id].actiu;
 }
 
-bool Union::equivalent(int id1,int id2) {
+bool UnionFind::equivalent(int id1, int id2) {
     if (not teNode(id1))
         cout << "No existeix un node amb la id " << id1 << '.' << endl;
     else if (not teNode(id2))
@@ -101,12 +101,12 @@ bool Union::equivalent(int id1,int id2) {
     return false;
 }
 
-string Union::toString() {
+string UnionFind::toString() {
     vector<vector<int>> classes(maxId + 1, vector<int>(0));
     for (int i = minIdActiu; i <= maxIdActiu; ++i)
         if (nodes[i].actiu)
             classes[find(i)].push_back(i);
-    string result = "";
+    string result;
     for (int i = minIdActiu; i <= maxIdActiu; ++i)
         if (not classes[i].empty()) {
             result += to_string(i) + ":";

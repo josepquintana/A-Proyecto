@@ -14,20 +14,15 @@ vector<int> greatest_components(Graph G){
     return components[Max];
 }
 
-bool is_giant(Graph G, vector<int> v){
-    for (int i = 0; i < v.size(); i++)
+bool is_giant(Graph G, const vector<int>& v){
+    for (int i : v)
     {
-        set<int> adj = G.getAdjacencies(v[i]);
-        if(pow(adj.size(),2)-2*adj.size() > 0)
-            return true;
-        else
-            return false;
+        set<int> adj = G.getAdjacencies(i);
+        return pow(adj.size(), 2) - 2 * adj.size() > 0;
     }
 }
 
 GreatGraph::GreatGraph(){}
-
-
 
 void GreatGraph::Test()
 {

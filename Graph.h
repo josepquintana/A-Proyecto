@@ -4,7 +4,7 @@
 #include <string>
 #include <cmath>
 #include <ctime>
-#include "Union.h"
+#include "UnionFind.h"
 
 using namespace std;
 

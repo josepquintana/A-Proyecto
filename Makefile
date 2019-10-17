@@ -28,4 +28,7 @@ probConnex.o: probConnex.h probConnex.cpp
 	g++ -c probConnex.cpp -std=c++11
 
 clean:
-	rm *.o *.x
+	rm -f $(OBJECTS) $(OUT)
+
+run: $(OUT)
+	./$(OUT)
