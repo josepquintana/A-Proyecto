@@ -1,15 +1,14 @@
 #include <iostream>
-#include <fstream>
 #include <ctime>
- #include "probConnex.h"  
-//#include "GreatGraph.h"
-
-
+#include "probConnex.h"
+#include "GreatGraph.h"
 using namespace std;
 
-int main(){
+int main()
+{
+    cout << "Hello!" << endl;
  	probConnex pC;
-	pC.Experiment();  
-    //GreatGraph GG;
-	//GG.Test();
+	pC.Experiment();
+    GreatGraph GG;
+    GG.Test();
 }

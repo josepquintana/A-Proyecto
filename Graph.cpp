@@ -86,8 +86,6 @@ void Graph::setRandomCoordinates(int maxX, int maxY){
             nodes[i].coord.first = x;
 
 
-
-        
         int randY = rand();
             //cout << "randY: " << randY <<endl;
         int y = (randY % (maxY + 1));
