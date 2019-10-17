@@ -8,7 +8,7 @@ probConnex::probConnex(){}
 void probConnex::Experiment()
 {
     std::ofstream file;
-    file.open ("data/dataERG.csv");
+    file.open ("../data/dataERG.csv");
     file << "vertex_number,arista_number,p_value,és_connex,n_connexions,\n";
     int vertex;
     int test = 20;
@@ -29,7 +29,7 @@ void probConnex::Experiment()
     }}}
     file.close();
 
-    file.open ("data/dataRRG.csv");
+    file.open ("../data/dataRRG.csv");
     file << "vertex_number,arista_number,r_value,és_connex,n_connexions,\n";
 
     for(int k = 0; k< 4; k++){
