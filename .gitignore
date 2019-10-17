@@ -3,6 +3,9 @@
 # Ignore cmake debug files
 cmake-build-debug/
 
+# Ignore C++ object files
+src/*.o
+
 # Ignore .csv files
 data/*.csv
 
