@@ -29,13 +29,8 @@ GreatGraph::GreatGraph(){}
 void GreatGraph::Test()
 {
     std::ofstream file;
-<<<<<<< HEAD:src/GreatGraph.cpp
     file.open ("../data/dataGG.csv");
-    file << "vertex_number,arista_number,p_value,is_giant,greatest_component\n";
-=======
-    file.open ("dataGG.csv");
     file << "vertex_number,arista_number,p_value,is_giant,greatest_component,computation_time\n";
->>>>>>> development-jordi:GreatGraph.cpp
     int vertex;
     int test = 20;
     float p = 0;

@@ -1,9 +1,5 @@
-<<<<<<< HEAD:src/Makefile
 OUT = A-Proyecto
 OBJECTS = main.o Graph.o UnionFind.o probConnex.o GreatGraph.o
-=======
-all: main.x
->>>>>>> development-jordi:Makefile
 
 main.x: main.o  Graph.o  UnionFind.o GreatGraph.o probConnex.o
 	g++ -o main.x main.o  Graph.o  UnionFind.o GreatGraph.o probConnex.o
