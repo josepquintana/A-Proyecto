@@ -13,7 +13,7 @@
 src/cmake-build-debug/
 
 # Ignore Results
-data/
+data/*
 
 # Ignore IDE files
 .idea/
