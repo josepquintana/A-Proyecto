@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <ctime>
- #include "probConnex.h"  
-//#include "GreatGraph.h"
+#include "probConnex.h"  
+#include "GreatGraph.h"
 
 
 using namespace std;
@@ -10,6 +10,6 @@ using namespace std;
 int main(){
  	probConnex pC;
 	pC.Experiment();  
-    //GreatGraph GG;
-	//GG.Test();
+    GreatGraph GG;
+	GG.Test();
 }

@@ -1,4 +1,5 @@
 #include "GreatGraph.h"
+#include "Graph.h"
 using namespace std;
 
 vector<int> greatest_components(Graph G){

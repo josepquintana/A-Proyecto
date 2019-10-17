@@ -1,10 +1,10 @@
-all: main_gg main_pc
+all: main_gg.x main_pc.x
 
-main_gg.x: main_gg.o  Graph.o Find.o Union.o probConnex.o GreatGraph.o
-	g++ -o main_gg.x *.o
+main_gg.x: main_gg.o  Graph.o Find.o Union.o GreatGraph.o
+	g++ -o main_gg.x main_gg.o  Graph.o Find.o Union.o GreatGraph.o
 
-main_pc.x: main_pc.o  Graph.o Find.o Union.o probConnex.o GreatGraph.o
-	g++ -o main_pc.x *.o
+main_pc.x: main_pc.o  Graph.o Find.o Union.o probConnex.o 
+	g++ -o main_pc.x main_pc.o  Graph.o Find.o Union.o probConnex.o 
 
 main_gg.o: main_gg.cpp
 	g++ -c main_gg.cpp -std=c++11
