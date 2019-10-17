@@ -1,4 +1,6 @@
 #include "probConnex.h"
+#include "Graph.h"
+
 using namespace std;
 
 probConnex::probConnex(){}

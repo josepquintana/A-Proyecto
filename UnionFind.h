@@ -1,22 +1,28 @@
+/**
+ * @file    UnionFind.h
+ * @brief   Especificació de la classe UnionFind.
+ */
+
 #include <iostream>
 #include <vector>
 #include <string>
-
 using namespace std;
 
-/**node del UnionFind set.*/
-struct nodeQF {
+/**nodeQU del UnionFind set.*/
+struct nodeQU {
     /**Indica si el UnionFind set té el node amb la id igual a la posició del vector nodes on es troba el node.*/
     bool actiu;
-    /**Indica la classe d'equivalència del node.*/
-    int classe;
+    /**Indica la id del pare del node.*/
+    int pare;
+    /**rank associat al node.*/
+    int rank;
 };
 
 /**
- * @class   Find
- * @brief   Conté la informació d'un UnionFind set amb implementació Find.
+ * @class   Union
+ * @brief   Conté la informació d'un UnionFind set amb implementació Union.
  */
-class Find {
+class UnionFind {
 
 private:
 
@@ -29,17 +35,24 @@ private:
     /**id més baixa entre les dels nodes del UnionFind set.*/
     int minIdActiu;
     /**vector que conté els nodes del UnionFind set.*/
-    vector<nodeQF> nodes;
+    vector<nodeQU> nodes;
+
+    /**
+     * Retorna la id del node representant de la classe d'equivalència del node donat existent.
+     * @param id    id del node del que es vol saber el representant de la classe d'equivalència a la que pertany.
+     * @return      id del node representant de la classe d'equivalència del UFNode del que s'ha donat la id.
+     */
+    int recFind(int id);
 
 public:
 
     /**Constructoras*/
 
     /**
-     * Constructora de la classe Find.
+     * Constructora de la classe Union.
      * @param maxId id més alta que pot tenir un node de l'UnionFind set.
      */
-    Find(int maxId);
+    UnionFind(int maxId);
 
     /**Modificadoras*/
 
@@ -60,8 +73,8 @@ public:
     /**Consultoras*/
 
     /**
-     * Convierte Find a string.
-     * @return  string con el contenido de Find.
+     * Convierte Union a string.
+     * @return  string con el contenido de Union.
      */
     string toString();
 
@@ -95,3 +108,5 @@ public:
     bool equivalent(int id1,int id2);
 
 };
+
+
