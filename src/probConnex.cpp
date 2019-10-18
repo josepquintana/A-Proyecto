@@ -7,7 +7,7 @@ probConnex::probConnex(){}
 void probConnex::Experiment()
 {
     std::ofstream file;
-    file.open ("dataERG.csv");
+    file.open ("../data/dataERG.csv");
     file << "vertex_number,arista_number,p_value,és_connex,n_connexions,computation_time\n";
     int vertex;
     int test = 20;

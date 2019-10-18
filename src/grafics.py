@@ -7,9 +7,9 @@ import random
 import importlib
 import csv
 
-dtb_giant = pd.read_csv("data/dataGG.csv")
-dtb_erg = pd.read_csv("data/dataERG.csv")
-dtb_rrg = pd.read_csv("data/dataRRG.csv")
+dtb_giant = pd.read_csv("../data/dataGG.csv")
+dtb_erg = pd.read_csv("../data/dataERG.csv")
+dtb_rrg = pd.read_csv("../data/dataRRG.csv")
 
 
 plist = [0] * 400
