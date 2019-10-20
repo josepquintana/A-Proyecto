@@ -1,3 +1,8 @@
+/**
+ * \file Graph.h
+ * \brief Graph class specification
+ */
+
 #include <iostream>
 #include <vector>
 #include <set>
@@ -5,133 +10,127 @@
 #include <cmath>
 #include <ctime>
 #include "UnionFind.h"
-
 using namespace std;
 
-/**Conté la informació d'un possible node del graph.*/
-struct nodeLG {
-    /**Indica si el Graph té el node amb la id igual a la posició del vector nodes on es troba el node.*/
-    bool actiu;
-    /**ids dels nodes adjacents al node.*/
-    set<int> adjacencies;
-
-    /**coordenades del node en el cas de formar part d'un Random Geometric Graph, en cas contrari els 
-    valos seràn iguals a -1.*/
-    pair<int, int> coord;
+/**
+ * \brief Stores the information of one Node of the Graph
+ */
+struct Node {
+    bool active; ///< Indicates if the node ID is the same as the vector position of the Graph where this node belongs
+    set<int> adjacencies; ///< collection of IDs of the adjacent nodes
+    pair<int, int> coordinates; ///< If the node belongs to a RGG stores the coordinates of the node. Otherwise the values will be (-1, -1).
 };
 
 /**
- * @class   Graph
- * @brief   Conté la informació d'un Graph implementat amb llistes d'adjacencies.
+ * \class Graph
+ * \brief Stores the information of a Grpah and all its nodes using adjacency lists.
  */
 class Graph {
 
 private:
-
-    int maxId;
-    /**id més alta assignable als nodes del Graph.*/
-    int maxIdActiu;
-    /**id més baixa entre les dels nodes del Graph.*/
-    int minIdActiu;
-    /**Número de vèrtexs que té el Graph.*/
-    int nV;
-    /**Número d'arestes que té el Graph.*/
-    int nA;
-    /**vector que conté els nodes del Graph.*/
-    vector<nodeLG> nodes;
+    int maxID; ///< Maximum ID value to assign to the Graph nodes
+    int maxActiveID; ///< Maximum ID among all the active Graph nodes
+    int minActiveID; ///< Minimum ID among all the active Graph nodes
+    int n; ///< Total number of vertices
+    int m; ///< Total number of edges
+    vector<Node> nodes; ///< Vector storing all the nodes, and their properties, belonging to the Graph
 
     /**
-     * Genera un Graph amb n vertexs (tots activats) i cap aresta.
-     * @param n Nombre de vèrtexs del Graph.
-     * @return  Graph amb n vertexs (tots activats) i cap aresta.
+     * \brief Generates a Graph with V vertices and no edges. All the nodes are activated
+     * \param n Number of vertices
+     * \return Graph(V,0) with n activated vertices and no edges
      */
-    static Graph generateActivatedGraph(int nV);
-
+    static Graph generateActivatedGraph(int n);
 
 public:
-
-    /**Constructores*/
-
-    /**
-     * Crea un Graph buit.
-     * @param maxId Máxima id assignable a un vèrtex del Graph.
-     */
-    Graph(int maxId);
+    /** Constructors */
 
     /**
-     * Crea un Graph aleatori donat un nombre de vèrtexs seguint el model Erdős-Rényi.
-     * @param nV    Nombre de vèrtexs que tindrà el Graph.
-     * @param M     Nombre d'arestes del Graph resultant.
-     * @return      Graph aleatori amb nV vèrtexs generat segons el model Erdős-Rényi.
+     * \brief Creates and empty Graph.
+     * \param maxID Maximum ID value to assign to the Graph nodes
      */
-    static Graph generateERGraph(int nV, int M);
+    Graph(int maxID);
 
-    static Graph generateRGG(int nV,float r);
+    /**
+     * \brief Creates a random Graph with a given number of vertices following the Erdős-Rényi model
+     * \param n Number of vertices of the generated Graph
+     * \param m Number of edges of the resulting Graph
+     * \return Random Graph with n vertices generated following the Erdős-Rényi model
+     */
+    static Graph generateERGraph(int n, int m);
+
+    /**
+     * \brief Creates a Random Geometric Graph with a given number of vertices and edges between those vertices that their distance is in the given range 'r'
+     * \param n Number of vertices of the generated Graph
+     * \param r Neighbour radius parameter
+     * \return Random Geometric Graph with n vertices and edges between those vertices that their distance is in the given range 'r'
+     */
+    static Graph generateRGGraph(int n, float r);
 
     void setRandomCoordinates(int maxX, int maxY);
 
 
-    /**Modificadores*/
+    /** Setters */
 
     /**
-     * Afegeix una aresta entre els vèrtexs amb les ids donades si aquests existeixen i no existeix ya una entre ells.
-     * @param id1   id d'un dels nodes de l'aresta.
-     * @param id2   id d'un dels nodes de l'aresta.
+     * \brief Adds and edge between the two specified vertices if these exists and an edge does not already exist
+     * \param id1 ID of one of the nodes
+     * \param id2 ID of the other node
      */
-    void addAresta(int id1, int id2);
+    void addEdge(int id1, int id2);
 
 
-    /**Consultores*/
-
-       /**
-     * Retorna la llista d'adjacencies d'un vèrtex amb la id indicada si aquest existeix.
-     * @param id    id del vèrtex del que es vol obtenir la llista d'adjacencies.
-     * @return      llista d'adjacencies del vètex amb la id donada.
-     */
-    set<int> getAdjacencies(int id);
-
-     /**
-     * Retorna totes les arestes del Graph.
-     * @return  arestes del Graph.
-     */
-    set<pair<int, int> > getArestes();
-
-     /**
-     * Retorna totes les ids dels vertexs del Graph.
-     * @return  ids dels vertexs del Graph.
-     */
-    set<int> getVertexs();
+    /** Getters */
 
     /**
-     * Indica si el Graph té un vèrtex amb la id indicada
-     * @param id    id del vèrtex que es vol comprovar.
-     * @return      true si el Graph té el vèrtex, false altrament.
+    * \brief Returns all the vertices of the GraphR
+    * \return Vertices IDs of the Graph
+    */
+    set<int> getVertices();
+
+    /**
+    * \brief Returns all the edges of the Graph
+    * \return Edges of the Graph
+    */
+    set<pair<int, int> > getEdges();
+
+    /**
+     * \brief Verifies if there's a vertex with the specified ID
+     * \param id Vertex ID to check
+     * \return True if the Grpah has a vertex with the specified ID. False otherwise
      */
     bool isActive(int id);
 
     /**
-     * Indica si 2 vèrtexs existents són adjacents.
-     * @param id1   id del 1r vèrtex.
-     * @param id2   id del 2n vèrtex.
-     * @return      true si els vètexs són adjacents, false altrament.
+     * \brief Verifies if two vertices are adjacent
+     * \param id1 ID of the first vertex
+     * \param id2 ID of the second vertex
+     * \return True if the two vertices are adjacent. False otherwise
      */
     bool adjacent(int id1, int id2);
 
-      /**
-     * Indica quants vèrtexs té el ListGraph.
-     * @return  Número de vèrtexs que té el ListGraph.
+    /**
+     * \brief Returns the adjacency list of a given vertex
+     * \param id Vertex ID to consult its adjacency list
+     * \return Adjacency list of vertex 'id'
      */
-    int getNVertexs();
-
-    int distance(int x1, int y1, int x2, int y2);
+    set<int> getAdjacencies(int id);
 
     /**
-     * Comprova la connectivitat del Graph
-     * @return els vertexs que formen part de cada component
+     * \brief Checks the connectivity of the Graph
+     * \return Vertices that make up each of the connected components
      */
     vector<vector<int> > getConnectedComponents();
 
-    /**Fa cout del graf.*/
+    /**
+    * \brief Returns the number of vertices of the Graph
+    * \return Number of vertices of the Graph
+    */
+    int getNumberVertices();
+
+    /**
+     * \brief print via the standard output the Graph
+     */
     void print();
 
 };

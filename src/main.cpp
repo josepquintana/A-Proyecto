@@ -1,14 +1,14 @@
 #include <iostream>
-#include <ctime>
 #include "probConnex.h"  
 #include "GreatGraph.h"
 using namespace std;
 
 int main()
 {
-    cout << "Hello!" << endl;
+    cout << "Testing connectivity probability..." << endl;
  	probConnex pC;
-	pC.Experiment();  
+    pC.Experiment();
+    cout << "Testing giant connected components..." << endl;
     GreatGraph GG;
 	GG.Test();
 }

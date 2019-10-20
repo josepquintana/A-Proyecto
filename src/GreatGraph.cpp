@@ -2,8 +2,7 @@
 #include "Graph.h"
 using namespace std;
 
-vector<int> greatest_components(Graph G){
-
+vector<int> greatest_components(Graph G) {
     vector<vector<int>> components = G.getConnectedComponents();
     int Max = 0;
     for (int i = 0; i < components.size(); i++)
@@ -16,9 +15,8 @@ vector<int> greatest_components(Graph G){
     return components[Max];
 }
 
-bool is_giant(Graph G, const vector<int>& v){
-    for (int i : v)
-    {
+bool is_giant(Graph G, const vector<int>& v) {
+    for (int i : v) {
         set<int> adj = G.getAdjacencies(i);
         return pow(adj.size(), 2) - 2 * adj.size() > 0;
     }
@@ -26,12 +24,11 @@ bool is_giant(Graph G, const vector<int>& v){
 
 GreatGraph::GreatGraph(){}
 
-void GreatGraph::Test()
-{
+void GreatGraph::Test() {
     std::ofstream file;
     file.open ("../data/dataGG.csv");
     file << "vertex_number,arista_number,p_value,is_giant,greatest_component,computation_time\n";
-    int vertex;
+    int v;
     int test = 20;
     float p = 0;
     int ar = 0;
@@ -39,19 +36,19 @@ void GreatGraph::Test()
     srand(time(0));
     for(int k = 0; k< 10; k++){
         cout << ".";
-        vertex = rand()% 100 + 100;
+        v = rand()% 100 + 100;
         p = 0;
          for(int j = 0; j < 5; j++){
             for(int i = 0; i< test; i++){
                 p = (float)i / (float)20;
-                ar = (vertex * (vertex -1) )/2 * p;
-                Graph G = Graph::generateERGraph(vertex,ar);
+                ar = (v * (v -1) )/2 * p;
+                Graph G = Graph::generateERGraph(v,ar);
                 t = clock();
                 vector<int> ncomp = greatest_components(G);
                 t = clock() - t;
                 bool giant = is_giant(G,ncomp);
                 float time = ((float)t)/CLOCKS_PER_SEC;
-                file <<vertex << "," <<ar << ","<< p << ","<< giant << "," << ncomp.size() << "," << time <<endl;
+                file <<v << "," <<ar << ","<< p << ","<< giant << "," << ncomp.size() << "," << time <<endl;
     }}}
     cout << endl;
     file.close();
