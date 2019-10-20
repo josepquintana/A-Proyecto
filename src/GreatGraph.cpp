@@ -31,7 +31,7 @@ void GreatGraph::Test()
     std::ofstream file;
     file.open ("../data/dataGG.csv");
     file << "vertex_number,arista_number,p_value,is_giant,greatest_component,computation_time\n";
-    int vertex;
+    int vertex = 0;
     int test = 20;
     float p = 0;
     int ar = 0;
@@ -39,7 +39,7 @@ void GreatGraph::Test()
     srand(time(0));
     for(int k = 0; k< 10; k++){
         cout << ".";
-        vertex = rand()% 100 + 100;
+        vertex = vertex + 100;
         p = 0;
          for(int j = 0; j < 5; j++){
             for(int i = 0; i< test; i++){

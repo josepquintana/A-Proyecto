@@ -7,17 +7,17 @@ probConnex::probConnex(){}
 void probConnex::Experiment()
 {
     std::ofstream file;
-    file.open ("dataERG.csv");
+    file.open ("../data/dataERG.csv");
     file << "vertex_number,arista_number,p_value,és_connex,n_connexions,computation_time\n";
-    int vertex;
+    int vertex = 0;
     int test = 20;
     float p = 0;
     int ar = 0;
     clock_t t;
     srand(time(0));
-    for(int k = 0; k< 4; k++){
+    for(int k = 0; k< 10; k++){
         cout << ".";
-        vertex = rand()% 100 + 10;
+        vertex = vertex + 100;
         p = 0;
          for(int j = 0; j < 5; j++){
     for(int i = 0; i< test; i++){
@@ -27,7 +27,7 @@ void probConnex::Experiment()
         bool connex = G.getConnectedComponents().size()<2;
         t = clock();
         int connexions = G.getConnectedComponents().size();
-        t = t -clock();
+        t = clock() -t;
         float time = ((float)t)/CLOCKS_PER_SEC;
         file <<vertex << "," <<ar << ","<< p << ","<< connex << "," << connexions << "," << time << endl;
     }}}
@@ -36,10 +36,10 @@ void probConnex::Experiment()
 
     file.open ("../data/dataRRG.csv");
     file << "vertex_number,arista_number,r_value,és_connex,n_connexions,computation_time\n";
-
-    for(int k = 0; k< 4; k++){
+    vertex = 0;
+    for(int k = 0; k< 10; k++){
         cout << ".";
-        vertex = rand()% 100 + 10;
+        vertex = vertex + 100;
         p = 0;
          for(int j = 0; j < 5; j++){
     for(int i = 0; i< test; i++){
@@ -48,7 +48,7 @@ void probConnex::Experiment()
         bool connex = G.getConnectedComponents().size()<2;
         t = clock();
         int connexions = G.getConnectedComponents().size();
-        t = t -clock();
+        t = clock() -t;
         float time = ((float)t)/CLOCKS_PER_SEC;
         file <<vertex << "," <<G.getArestes().size() << ","<< p << ","<< connex << "," << connexions << "," << time << endl;
     }}
