@@ -67,6 +67,11 @@ public:
      */
     static Graph generateRGGraph(int n, float r);
 
+    /**
+     * \brief Set all the nodes of the Graph to random coordinates with the specified upper boundary
+     * \param maxX Maximum X-axis coordinate
+     * \param maxY Maximum Y-axis coordinate
+     */
     void setRandomCoordinates(int maxX, int maxY);
 
 

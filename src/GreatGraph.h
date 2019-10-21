@@ -12,6 +12,10 @@
 #include <cmath>
 using namespace std;
 
+/**
+ * \class GreatGraph
+ * \brief This class tests the phase transition of the expected size of the greatest connected component
+ */
 class GreatGraph
 {
 public:
