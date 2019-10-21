@@ -1,0 +1,256 @@
+\hypertarget{classGraph}{}\section{Graph Class Reference}
+\label{classGraph}\index{Graph@{Graph}}
+
+
+Stores the information of a Grpah and all its nodes using adjacency lists.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGraph_a2d6e8bbe5d266e468dab445de71607ff}{Graph} (int max\+ID)
+\begin{DoxyCompactList}\small\item\em Creates and empty \hyperlink{classGraph}{Graph}. \end{DoxyCompactList}\item 
+void \hyperlink{classGraph_a0c904fc0ce662301c2ed25b1993ae06e}{set\+Random\+Coordinates} (int maxX, int maxY)
+\begin{DoxyCompactList}\small\item\em Set all the nodes of the \hyperlink{classGraph}{Graph} to random coordinates with the specified upper boundary. \end{DoxyCompactList}\item 
+void \hyperlink{classGraph_acbe5b7cf2a17849a3c8385890c556625}{add\+Edge} (int id1, int id2)
+\begin{DoxyCompactList}\small\item\em Adds and edge between the two specified vertices if these exists and an edge does not already exist. \end{DoxyCompactList}\item 
+set$<$ int $>$ \hyperlink{classGraph_a4acd450439bb4209953c10ac45ad47b2}{get\+Vertices} ()
+\begin{DoxyCompactList}\small\item\em Returns all the vertices of the GraphR. \end{DoxyCompactList}\item 
+set$<$ pair$<$ int, int $>$ $>$ \hyperlink{classGraph_a2e4fed16e6046a6274cf317c794cc0c3}{get\+Edges} ()
+\begin{DoxyCompactList}\small\item\em Returns all the edges of the \hyperlink{classGraph}{Graph}. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraph_a7ef34e66297418bbc2aa3ee80ab5c922}{is\+Active} (int id)
+\begin{DoxyCompactList}\small\item\em Verifies if there\textquotesingle{}s a vertex with the specified ID. \end{DoxyCompactList}\item 
+bool \hyperlink{classGraph_a6d50028c1549bf475a3042709c013174}{adjacent} (int id1, int id2)
+\begin{DoxyCompactList}\small\item\em Verifies if two vertices are adjacent. \end{DoxyCompactList}\item 
+set$<$ int $>$ \hyperlink{classGraph_abe4de4c0e093b910c8bdfe6dd2073fd3}{get\+Adjacencies} (int id)
+\begin{DoxyCompactList}\small\item\em Returns the adjacency list of a given vertex. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classGraph_aa2609fca5b449849d67ed7a20bf05107}{get\+Connected\+Components} ()
+\begin{DoxyCompactList}\small\item\em Checks the connectivity of the \hyperlink{classGraph}{Graph}. \end{DoxyCompactList}\item 
+int \hyperlink{classGraph_a37480eba273bdc76a05ee24633830000}{get\+Number\+Vertices} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of vertices of the \hyperlink{classGraph}{Graph}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGraph_a2ecf3dd3c4897aa924da8e5c221a8509}\label{classGraph_a2ecf3dd3c4897aa924da8e5c221a8509}} 
+void \hyperlink{classGraph_a2ecf3dd3c4897aa924da8e5c221a8509}{print} ()
+\begin{DoxyCompactList}\small\item\em print via the standard output the \hyperlink{classGraph}{Graph} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classGraph}{Graph} \hyperlink{classGraph_a09cc21800f82465a691a53bf9cd4c0e8}{generate\+E\+R\+Graph} (int n, int m)
+\begin{DoxyCompactList}\small\item\em Creates a random \hyperlink{classGraph}{Graph} with a given number of vertices following the Erdős-\/\+Rényi model. \end{DoxyCompactList}\item 
+static \hyperlink{classGraph}{Graph} \hyperlink{classGraph_a17572d393dd57dc5dae485f215f75aad}{generate\+R\+G\+Graph} (int n, float r)
+\begin{DoxyCompactList}\small\item\em Creates a Random Geometric \hyperlink{classGraph}{Graph} with a given number of vertices and edges between those vertices that their distance is in the given range \textquotesingle{}r\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores the information of a Grpah and all its nodes using adjacency lists. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGraph_a2d6e8bbe5d266e468dab445de71607ff}\label{classGraph_a2d6e8bbe5d266e468dab445de71607ff}} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{int}]{max\+ID }\end{DoxyParamCaption})}
+
+
+
+Creates and empty \hyperlink{classGraph}{Graph}. 
+
+Constructors 
+\begin{DoxyParams}{Parameters}
+{\em max\+ID} & Maximum ID value to assign to the \hyperlink{classGraph}{Graph} nodes \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraph_acbe5b7cf2a17849a3c8385890c556625}\label{classGraph_acbe5b7cf2a17849a3c8385890c556625}} 
+\index{Graph@{Graph}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{add\+Edge()}{addEdge()}}
+{\footnotesize\ttfamily void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{id1,  }\item[{int}]{id2 }\end{DoxyParamCaption})}
+
+
+
+Adds and edge between the two specified vertices if these exists and an edge does not already exist. 
+
+Setters 
+\begin{DoxyParams}{Parameters}
+{\em id1} & ID of one of the nodes \\
+\hline
+{\em id2} & ID of the other node \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a6d50028c1549bf475a3042709c013174}\label{classGraph_a6d50028c1549bf475a3042709c013174}} 
+\index{Graph@{Graph}!adjacent@{adjacent}}
+\index{adjacent@{adjacent}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{adjacent()}{adjacent()}}
+{\footnotesize\ttfamily bool Graph\+::adjacent (\begin{DoxyParamCaption}\item[{int}]{id1,  }\item[{int}]{id2 }\end{DoxyParamCaption})}
+
+
+
+Verifies if two vertices are adjacent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id1} & ID of the first vertex \\
+\hline
+{\em id2} & ID of the second vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the two vertices are adjacent. False otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a09cc21800f82465a691a53bf9cd4c0e8}\label{classGraph_a09cc21800f82465a691a53bf9cd4c0e8}} 
+\index{Graph@{Graph}!generate\+E\+R\+Graph@{generate\+E\+R\+Graph}}
+\index{generate\+E\+R\+Graph@{generate\+E\+R\+Graph}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{generate\+E\+R\+Graph()}{generateERGraph()}}
+{\footnotesize\ttfamily \hyperlink{classGraph}{Graph} Graph\+::generate\+E\+R\+Graph (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a random \hyperlink{classGraph}{Graph} with a given number of vertices following the Erdős-\/\+Rényi model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of vertices of the generated \hyperlink{classGraph}{Graph} \\
+\hline
+{\em m} & Number of edges of the resulting \hyperlink{classGraph}{Graph} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Random \hyperlink{classGraph}{Graph} with n vertices generated following the Erdős-\/\+Rényi model 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a17572d393dd57dc5dae485f215f75aad}\label{classGraph_a17572d393dd57dc5dae485f215f75aad}} 
+\index{Graph@{Graph}!generate\+R\+G\+Graph@{generate\+R\+G\+Graph}}
+\index{generate\+R\+G\+Graph@{generate\+R\+G\+Graph}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{generate\+R\+G\+Graph()}{generateRGGraph()}}
+{\footnotesize\ttfamily \hyperlink{classGraph}{Graph} Graph\+::generate\+R\+G\+Graph (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{float}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a Random Geometric \hyperlink{classGraph}{Graph} with a given number of vertices and edges between those vertices that their distance is in the given range \textquotesingle{}r\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of vertices of the generated \hyperlink{classGraph}{Graph} \\
+\hline
+{\em r} & Neighbour radius parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Random Geometric \hyperlink{classGraph}{Graph} with n vertices and edges between those vertices that their distance is in the given range \textquotesingle{}r\textquotesingle{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_abe4de4c0e093b910c8bdfe6dd2073fd3}\label{classGraph_abe4de4c0e093b910c8bdfe6dd2073fd3}} 
+\index{Graph@{Graph}!get\+Adjacencies@{get\+Adjacencies}}
+\index{get\+Adjacencies@{get\+Adjacencies}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{get\+Adjacencies()}{getAdjacencies()}}
+{\footnotesize\ttfamily set$<$ int $>$ Graph\+::get\+Adjacencies (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Returns the adjacency list of a given vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Vertex ID to consult its adjacency list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adjacency list of vertex \textquotesingle{}id\textquotesingle{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_aa2609fca5b449849d67ed7a20bf05107}\label{classGraph_aa2609fca5b449849d67ed7a20bf05107}} 
+\index{Graph@{Graph}!get\+Connected\+Components@{get\+Connected\+Components}}
+\index{get\+Connected\+Components@{get\+Connected\+Components}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{get\+Connected\+Components()}{getConnectedComponents()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ int $>$ $>$ Graph\+::get\+Connected\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks the connectivity of the \hyperlink{classGraph}{Graph}. 
+
+\begin{DoxyReturn}{Returns}
+Vertices that make up each of the connected components 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a2e4fed16e6046a6274cf317c794cc0c3}\label{classGraph_a2e4fed16e6046a6274cf317c794cc0c3}} 
+\index{Graph@{Graph}!get\+Edges@{get\+Edges}}
+\index{get\+Edges@{get\+Edges}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{get\+Edges()}{getEdges()}}
+{\footnotesize\ttfamily set$<$ pair$<$ int, int $>$ $>$ Graph\+::get\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns all the edges of the \hyperlink{classGraph}{Graph}. 
+
+\begin{DoxyReturn}{Returns}
+Edges of the \hyperlink{classGraph}{Graph} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a37480eba273bdc76a05ee24633830000}\label{classGraph_a37480eba273bdc76a05ee24633830000}} 
+\index{Graph@{Graph}!get\+Number\+Vertices@{get\+Number\+Vertices}}
+\index{get\+Number\+Vertices@{get\+Number\+Vertices}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{get\+Number\+Vertices()}{getNumberVertices()}}
+{\footnotesize\ttfamily int Graph\+::get\+Number\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the number of vertices of the \hyperlink{classGraph}{Graph}. 
+
+\begin{DoxyReturn}{Returns}
+Number of vertices of the \hyperlink{classGraph}{Graph} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a4acd450439bb4209953c10ac45ad47b2}\label{classGraph_a4acd450439bb4209953c10ac45ad47b2}} 
+\index{Graph@{Graph}!get\+Vertices@{get\+Vertices}}
+\index{get\+Vertices@{get\+Vertices}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}}
+{\footnotesize\ttfamily set$<$ int $>$ Graph\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns all the vertices of the GraphR. 
+
+Getters \begin{DoxyReturn}{Returns}
+Vertices I\+Ds of the \hyperlink{classGraph}{Graph} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a7ef34e66297418bbc2aa3ee80ab5c922}\label{classGraph_a7ef34e66297418bbc2aa3ee80ab5c922}} 
+\index{Graph@{Graph}!is\+Active@{is\+Active}}
+\index{is\+Active@{is\+Active}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{is\+Active()}{isActive()}}
+{\footnotesize\ttfamily bool Graph\+::is\+Active (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Verifies if there\textquotesingle{}s a vertex with the specified ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Vertex ID to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the Grpah has a vertex with the specified ID. False otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a0c904fc0ce662301c2ed25b1993ae06e}\label{classGraph_a0c904fc0ce662301c2ed25b1993ae06e}} 
+\index{Graph@{Graph}!set\+Random\+Coordinates@{set\+Random\+Coordinates}}
+\index{set\+Random\+Coordinates@{set\+Random\+Coordinates}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{set\+Random\+Coordinates()}{setRandomCoordinates()}}
+{\footnotesize\ttfamily void Graph\+::set\+Random\+Coordinates (\begin{DoxyParamCaption}\item[{int}]{maxX,  }\item[{int}]{maxY }\end{DoxyParamCaption})}
+
+
+
+Set all the nodes of the \hyperlink{classGraph}{Graph} to random coordinates with the specified upper boundary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maxX} & Maximum X-\/axis coordinate \\
+\hline
+{\em maxY} & Maximum Y-\/axis coordinate \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Graph_8h}{Graph.\+h}\item 
+Graph.\+cpp\end{DoxyCompactItemize}

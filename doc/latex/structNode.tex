@@ -1,0 +1,31 @@
+\hypertarget{structNode}{}\section{Node Struct Reference}
+\label{structNode}\index{Node@{Node}}
+
+
+Stores the information of one \hyperlink{structNode}{Node} of the \hyperlink{classGraph}{Graph}.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structNode_a9f86329e8fb9d0bb3541929ba067088a}\label{structNode_a9f86329e8fb9d0bb3541929ba067088a}} 
+bool \hyperlink{structNode_a9f86329e8fb9d0bb3541929ba067088a}{active}
+\begin{DoxyCompactList}\small\item\em Indicates if the node ID is the same as the vector position of the \hyperlink{classGraph}{Graph} where this node belongs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structNode_a79dc4e67eb822a12e160131482436024}\label{structNode_a79dc4e67eb822a12e160131482436024}} 
+set$<$ int $>$ \hyperlink{structNode_a79dc4e67eb822a12e160131482436024}{adjacencies}
+\begin{DoxyCompactList}\small\item\em collection of I\+Ds of the adjacent nodes \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structNode_a0025442a3b79014815afbede30dba0fd}\label{structNode_a0025442a3b79014815afbede30dba0fd}} 
+pair$<$ int, int $>$ \hyperlink{structNode_a0025442a3b79014815afbede30dba0fd}{coordinates}
+\begin{DoxyCompactList}\small\item\em If the node belongs to a R\+GG stores the coordinates of the node. Otherwise the values will be (-\/1, -\/1). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores the information of one \hyperlink{structNode}{Node} of the \hyperlink{classGraph}{Graph}. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Graph_8h}{Graph.\+h}\end{DoxyCompactItemize}

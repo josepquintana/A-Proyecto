@@ -1,0 +1,28 @@
+\hypertarget{Graph_8h}{}\section{Graph.\+h File Reference}
+\label{Graph_8h}\index{Graph.\+h@{Graph.\+h}}
+
+
+\hyperlink{classGraph}{Graph} class specification.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include \char`\"{}Union\+Find.\+h\char`\"{}}\newline
+Include dependency graph for Graph.\+h\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structNode}{Node}
+\begin{DoxyCompactList}\small\item\em Stores the information of one \hyperlink{structNode}{Node} of the \hyperlink{classGraph}{Graph}. \end{DoxyCompactList}\item 
+class \hyperlink{classGraph}{Graph}
+\begin{DoxyCompactList}\small\item\em Stores the information of a Grpah and all its nodes using adjacency lists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classGraph}{Graph} class specification. 
+
