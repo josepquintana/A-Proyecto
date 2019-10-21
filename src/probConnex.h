@@ -13,7 +13,7 @@ using namespace std;
 
 /**
  * \class probConnex
- * \brief something
+ * \brief This class tests the phase transition of the probability of being a connected Graph
  */
 class probConnex
 {

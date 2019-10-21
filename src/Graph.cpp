@@ -43,8 +43,7 @@ Graph Graph::generateERGraph(int n, int m) {
     return G;
 }
 
-Graph Graph::generateRGGraph(int n, float r){
-
+Graph Graph::generateRGGraph(int n, float r) {
     srand(time(0));
     int randD = rand();
     int randomDistance = (int) 1/r;
@@ -59,16 +58,6 @@ Graph Graph::generateRGGraph(int n, float r){
             int coordxj = G.nodes[j].coordinates.first;
             int coordyj = G.nodes[j].coordinates.second;
 
-            /*
-            cout << "en generateRGG, en el bucle interno, coordenadas:" << endl;
-
-            cout << "  NODO i:" << endl;
-            cout << "      x = " << coordxi << ", y= " << coordyi  << endl;
-            cout << "  NODO j:" << endl;
-            cout << "      x = " << coordxj << ", y= " << coordyj  << endl;
-            int d = 1;
-             */
-
             int d = sqrt (pow(coordxj-coordxi, 2) + pow(coordyj-coordyi, 2));
 
             if(d < randomDistance){
@@ -80,22 +69,16 @@ Graph Graph::generateRGGraph(int n, float r){
     return G;
 }
 
-void Graph::setRandomCoordinates(int maxX, int maxY){
+void Graph::setRandomCoordinates(int maxX, int maxY) {
 
     srand(time(0));
     for(int i = 0; i < n; ++i) {
         int randX = rand();
-        //cout << "randX: " << randX <<endl;
         int x = (randX % (maxX + 1));
         nodes[i].coordinates.first = x;
-
         int randY = rand();
-        //cout << "randY: " << randY <<endl;
         int y = (randY % (maxY + 1));
         nodes[i].coordinates.second = y;
-
-        //cout << "nodo: " << i <<endl;
-        // cout << "      x=" << x << ", y=" << y << endl;
     }
 }
 
