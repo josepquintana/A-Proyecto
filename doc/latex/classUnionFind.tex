@@ -1,0 +1,174 @@
+\hypertarget{classUnionFind}{}\section{Union\+Find Class Reference}
+\label{classUnionFind}\index{Union\+Find@{Union\+Find}}
+
+
+Stores the information of a Union-\/\+Find disjoint set and its related information.  
+
+
+
+
+{\ttfamily \#include $<$Union\+Find.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classUnionFind_ad36f529ec0f1e7414e164bf1071bc87c}{Union\+Find} (int max\+Id)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classUnionFind}{Union\+Find} class constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classUnionFind_ac1bd057d6b8d5a834650c29677d99c98}{make\+Set} (int id)
+\begin{DoxyCompactList}\small\item\em Create an equivalence class with its representative being the given vertex ID. \end{DoxyCompactList}\item 
+void \hyperlink{classUnionFind_a4ebd8dadae9c2be54bc474af93ce3b80}{make\+Union} (int id1, int id2)
+\begin{DoxyCompactList}\small\item\em Merges the equivalence classes of the nodes with the given I\+Ds if they exists and are from different classes. \end{DoxyCompactList}\item 
+string \hyperlink{classUnionFind_a745c39dc529d7fd20536bed4ceeca069}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Transforms the \hyperlink{classUnionFind}{Union\+Find} into a string. \end{DoxyCompactList}\item 
+int \hyperlink{classUnionFind_af3c7274809f59f8b734ded45c17d6830}{find} (int id)
+\begin{DoxyCompactList}\small\item\em Get the vertex ID of the representative node of the equivalence class of the given node. \end{DoxyCompactList}\item 
+int \hyperlink{classUnionFind_a47b6b7874590396185e6cf17bfec37c8}{get\+N\+Classes} ()
+\begin{DoxyCompactList}\small\item\em Get the number of different equivalence classes of the \hyperlink{classUnionFind}{Union\+Find} set. \end{DoxyCompactList}\item 
+bool \hyperlink{classUnionFind_a621d2ffe71e3b584b81c2da377da0f87}{has\+Node} (int id)
+\begin{DoxyCompactList}\small\item\em Checks if the \hyperlink{classUnionFind}{Union\+Find} set has a node with the given ID. \end{DoxyCompactList}\item 
+bool \hyperlink{classUnionFind_a1f5ed5a7c490e938d3f9a9abb6642e20}{equivalent} (int id1, int id2)
+\begin{DoxyCompactList}\small\item\em Check if two nodes belong to the same equivalence class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores the information of a Union-\/\+Find disjoint set and its related information. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUnionFind_ad36f529ec0f1e7414e164bf1071bc87c}\label{classUnionFind_ad36f529ec0f1e7414e164bf1071bc87c}} 
+\index{Union\+Find@{Union\+Find}!Union\+Find@{Union\+Find}}
+\index{Union\+Find@{Union\+Find}!Union\+Find@{Union\+Find}}
+\subsubsection{\texorpdfstring{Union\+Find()}{UnionFind()}}
+{\footnotesize\ttfamily Union\+Find\+::\+Union\+Find (\begin{DoxyParamCaption}\item[{int}]{max\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{classUnionFind}{Union\+Find} class constructor. 
+
+Constructors 
+\begin{DoxyParams}{Parameters}
+{\em max\+Id} & Maximum vertex ID a node of the \hyperlink{classUnionFind}{Union\+Find} set can have \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classUnionFind_a1f5ed5a7c490e938d3f9a9abb6642e20}\label{classUnionFind_a1f5ed5a7c490e938d3f9a9abb6642e20}} 
+\index{Union\+Find@{Union\+Find}!equivalent@{equivalent}}
+\index{equivalent@{equivalent}!Union\+Find@{Union\+Find}}
+\subsubsection{\texorpdfstring{equivalent()}{equivalent()}}
+{\footnotesize\ttfamily bool Union\+Find\+::equivalent (\begin{DoxyParamCaption}\item[{int}]{id1,  }\item[{int}]{id2 }\end{DoxyParamCaption})}
+
+
+
+Check if two nodes belong to the same equivalence class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id1} & ID of one of the nodes \\
+\hline
+{\em id2} & ID of the other node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the two given nodes belong two the same equivalence class. Otherwise, or if any of the I\+Ds does not exists, false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUnionFind_af3c7274809f59f8b734ded45c17d6830}\label{classUnionFind_af3c7274809f59f8b734ded45c17d6830}} 
+\index{Union\+Find@{Union\+Find}!find@{find}}
+\index{find@{find}!Union\+Find@{Union\+Find}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily int Union\+Find\+::find (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Get the vertex ID of the representative node of the equivalence class of the given node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Vertex ID to find the representative of its equivalence class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ID of the representative node of the equivalence class from the \hyperlink{classUnionFind}{Union\+Find} node with the given id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUnionFind_a47b6b7874590396185e6cf17bfec37c8}\label{classUnionFind_a47b6b7874590396185e6cf17bfec37c8}} 
+\index{Union\+Find@{Union\+Find}!get\+N\+Classes@{get\+N\+Classes}}
+\index{get\+N\+Classes@{get\+N\+Classes}!Union\+Find@{Union\+Find}}
+\subsubsection{\texorpdfstring{get\+N\+Classes()}{getNClasses()}}
+{\footnotesize\ttfamily int Union\+Find\+::get\+N\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the number of different equivalence classes of the \hyperlink{classUnionFind}{Union\+Find} set. 
+
+\begin{DoxyReturn}{Returns}
+Number of different equivalence classes of the \hyperlink{classUnionFind}{Union\+Find} set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUnionFind_a621d2ffe71e3b584b81c2da377da0f87}\label{classUnionFind_a621d2ffe71e3b584b81c2da377da0f87}} 
+\index{Union\+Find@{Union\+Find}!has\+Node@{has\+Node}}
+\index{has\+Node@{has\+Node}!Union\+Find@{Union\+Find}}
+\subsubsection{\texorpdfstring{has\+Node()}{hasNode()}}
+{\footnotesize\ttfamily bool Union\+Find\+::has\+Node (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Checks if the \hyperlink{classUnionFind}{Union\+Find} set has a node with the given ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Vertex ID to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the \hyperlink{classUnionFind}{Union\+Find} set has a node with ID \textquotesingle{}id\textquotesingle{}. Otherwise, false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUnionFind_ac1bd057d6b8d5a834650c29677d99c98}\label{classUnionFind_ac1bd057d6b8d5a834650c29677d99c98}} 
+\index{Union\+Find@{Union\+Find}!make\+Set@{make\+Set}}
+\index{make\+Set@{make\+Set}!Union\+Find@{Union\+Find}}
+\subsubsection{\texorpdfstring{make\+Set()}{makeSet()}}
+{\footnotesize\ttfamily void Union\+Find\+::make\+Set (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Create an equivalence class with its representative being the given vertex ID. 
+
+Setters 
+\begin{DoxyParams}{Parameters}
+{\em id} & Vertex ID of the representative of the newly created equivalence class \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUnionFind_a4ebd8dadae9c2be54bc474af93ce3b80}\label{classUnionFind_a4ebd8dadae9c2be54bc474af93ce3b80}} 
+\index{Union\+Find@{Union\+Find}!make\+Union@{make\+Union}}
+\index{make\+Union@{make\+Union}!Union\+Find@{Union\+Find}}
+\subsubsection{\texorpdfstring{make\+Union()}{makeUnion()}}
+{\footnotesize\ttfamily void Union\+Find\+::make\+Union (\begin{DoxyParamCaption}\item[{int}]{id1,  }\item[{int}]{id2 }\end{DoxyParamCaption})}
+
+
+
+Merges the equivalence classes of the nodes with the given I\+Ds if they exists and are from different classes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id1} & Vertex ID of the first \hyperlink{classUnionFind}{Union\+Find} node \\
+\hline
+{\em id2} & Vertex ID of the first \hyperlink{classUnionFind}{Union\+Find} node \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUnionFind_a745c39dc529d7fd20536bed4ceeca069}\label{classUnionFind_a745c39dc529d7fd20536bed4ceeca069}} 
+\index{Union\+Find@{Union\+Find}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Union\+Find@{Union\+Find}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily string Union\+Find\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Transforms the \hyperlink{classUnionFind}{Union\+Find} into a string. 
+
+Getters \begin{DoxyReturn}{Returns}
+string with the \hyperlink{classUnionFind}{Union\+Find} content 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{UnionFind_8h}{Union\+Find.\+h}\item 
+Union\+Find.\+cpp\end{DoxyCompactItemize}
